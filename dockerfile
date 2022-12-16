@@ -1,8 +1,8 @@
-FROM node:alpine
+FROM node:16
 
-WORKDIR /src/app
+WORKDIR /app
 
-COPY package*.json ./
+COPY ["package.json", "package-lock.json*", "./"]
 RUN npm install
 
 COPY . .
