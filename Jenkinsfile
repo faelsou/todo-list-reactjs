@@ -1,4 +1,4 @@
-pipeline {
+pipeline{
     agent{
         label "any"
     }
@@ -14,35 +14,35 @@ pipeline {
                 steps {
                     script {
                         dockerapp = docker.build("faelsouz/todolist:${env.BUILD_ID}", 
-                                                ' - f /dockerfile /')
+                                                '-f /dockerfile /')
                     }
                 }
                 
             }
 
 
-    //         post{
-    //             always{
-    //                 echo "========always========"
-    //             }
-    //             success{
-    //                 echo "========A executed successfully========"
-    //             }
-    //             failure{
-    //                 echo "========A execution failed========"
-    //             }
-    //         }
-    //     }
-    // }
-    // post{
-    //     always{
-    //         echo "========always========"
-    //     }
-    //     success{
-    //         echo "========pipeline executed successfully ========"
-    //     }
-    //     failure{
-    //         echo "========pipeline execution failed========"
+            post{
+                always{
+                    echo "========always========"
+                }
+                success{
+                    echo "========A executed successfully========"
+                }
+                failure{
+                    echo "========A execution failed========"
+                }
+            }
+        }
+    }
+    post{
+        always{
+            echo "========always========"
+        }
+        success{
+            echo "========pipeline executed successfully ========"
+        }
+        failure{
+            echo "========pipeline execution failed========"
         }
     }
 }
