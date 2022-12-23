@@ -9,27 +9,14 @@ pipeline{
                 //echo "Fazendo checkout no repositorio"
             }
 
-            stage ('Construção da imagem docker') {
-                steps {
-                    script {
-                        dockerapp = docker.build("faelsouz/todolist:${env.BUILD_ID}", 
-                                                '-f ./dockerfile ./')
+        stage ('Construção da imagem docker') {
+            steps {
+                script {
+                    dockerapp = docker.build("faelsouz/todolist:${env.BUILD_ID}", 
+                                            '-f ./dockerfile ./')
                     }
                 }
                 
-            }
-
-
-            post{
-                always{
-                    echo "========always========"
-                }
-                success{
-                    echo "========A executed successfully========"
-                }
-                failure{
-                    echo "========A execution failed========"
-                }
             }
         }
     }
