@@ -6,7 +6,7 @@ pipeline{
         stage ("Checkout do codigo") {
             steps{
                 git url: 'https://github.com/faelsou/todo-list-reactjs.git',
-                branch: 'develop'
+                branch: 'develop',
                 echo "Fazendo checkout no repositorio"
             }
 
@@ -14,7 +14,7 @@ pipeline{
                 steps {
                     script {
                         dockerapp = docker.build("faelsouz/todolist:${env.BUILD_ID}", 
-                                                '-f /dockerfile /')
+                                                '-f ./dockerfile ./')
                     }
                 }
                 
