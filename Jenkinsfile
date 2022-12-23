@@ -1,4 +1,4 @@
-pipeline{
+pipeline {
     agent{
         label "any"
     }
@@ -43,6 +43,6 @@ pipeline{
     //     }
     //     failure{
     //         echo "========pipeline execution failed========"
-    //     }
-    // }
+        }
+    }
 }
