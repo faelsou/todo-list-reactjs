@@ -14,7 +14,7 @@ pipeline{
             steps {
                 script {
                     dockerapp = docker.build("faelsouz/todolist:${env.BUILD_ID}", 
-                                            '-f ./dockerfile ./')
+                                            '-f /dockerfile /')
                     }
                 }
                 
