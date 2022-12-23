@@ -5,8 +5,8 @@ pipeline{
     stages{
         stage ("Checkout do codigo") {
             steps{
-                url: "https://github.com/faelsou/todo-list-reactjs.git",
-                branch: 'develop'
+                url: 'https://github.com/faelsou/todo-list-reactjs.git',
+                branch: 'main'
                 echo "Fazendo checkout no repositorio"
             }
 
