@@ -6,8 +6,9 @@ pipeline{
             steps{
                 git url: "https://github.com/faelsou/todo-list-reactjs.git",
                 branch: 'main'
-                //echo "Fazendo checkout no repositorio"
+                echo "Fazendo checkout no repositorio"
             }
+        }
 
         stage ('Construção da imagem docker') {
             steps {
@@ -31,4 +32,5 @@ pipeline{
             echo "========pipeline execution failed========"
         }
     }
-}
+    
+
