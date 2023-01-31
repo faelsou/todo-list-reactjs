@@ -1,10 +1,13 @@
-FROM node:16-alpine
+FROM node:18-alpine
 
 WORKDIR /src
-COPY ["package.json", "./"]
 
+COPY ["package.json", "package-lock.json*", "./"]
 RUN npm install --production
+
 COPY . .
-CMD [ "npm", "start" ]
+
 EXPOSE 3000
+
+CMD [ "npm", "start" ]
 
