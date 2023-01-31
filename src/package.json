@@ -1,3 +1,4 @@
+
 {
   "name": "react-todo-list-app",
   "version": "0.1.0",
@@ -39,6 +40,5 @@
   "main": "index.js",
   "author": "",
   "license": "ISC",
-  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
-  "devDependencies": {}
+  "description": ""
 }
