@@ -11,7 +11,7 @@ pipeline {
         stage('Construção da imagem docker') {
             steps {
                 script{
-                    dockerapp = docker.build("faelsouz/react-todo-list-app:${env.BUILD_ID", '-f ./src/Dockerfile ./src')
+                    dockerapp = docker.build("faelsouz/react-todo-list-app:${env.BUILD_ID", '-f ./Dockerfile ./src')
                     echo 'Construindo imagem docker'
                 }
                 
@@ -23,7 +23,7 @@ pipeline {
         //             docker.withRegistry('https://registry.hub.docker.com', 'dockerhub')
         //             echo 'Deploying....'
         //         }
-                
+        //
         //     }
         // }
     }
