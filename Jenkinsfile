@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-            image 'faelsouz/react-todo-list-app:1.0'
+            image 'react-todo-list-app:1.0'
             args '-p 3000:3000'
         }
     }
@@ -31,7 +31,7 @@ pipeline {
             steps {
                 script{
                     withDockerRegistry([credentialsId: "dockerhub", url: "https://hub.docker.com/"]) {
-                        sh 'docker push faelsouz/react-todo-list-app:1.0'
+                        sh 'docker push react-todo-list-app:1.0'
                     }
                 }
             }
