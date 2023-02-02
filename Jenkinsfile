@@ -14,11 +14,11 @@ pipeline {
                 echo 'Fazendo checkout no repositorio'
             }
         }
-        stage('Build') {
-            steps {
-                sh 'npm install'
-            }
-        }
+        // stage('Build') {
+        //     steps {
+        //         sh 'npm install'
+        //     }
+        // }
         stage('Construção da imagem docker') {
             steps {
                 script{
