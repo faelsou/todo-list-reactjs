@@ -11,7 +11,7 @@ pipeline {
         stage('Construção da imagem docker') {
             steps {
                 script{
-                    dockerapp = docker.build("faelsouz/react-todo-list-app:1.0", '-f ./Dockerfile ./')
+                    sh 'docker build -f faelsouz/react-todo-list-app:1.0 .' 
                     echo 'Construindo imagem docker'
                 }
                 
