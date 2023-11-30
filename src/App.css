@@ -16,7 +16,7 @@
   .todo-app {
     display: flex;
     flex-direction: column;
-    justify-content: start;
+    justify-content: flex-start;
     width: 520px;
     min-height: 600px;
     background: #161a2b;
@@ -92,7 +92,7 @@
   .todo-row {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     margin: 4px auto;
     color: #fff;
     background: linear-gradient(
@@ -132,7 +132,7 @@
   
   .icons {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     font-size: 24px;
     cursor: pointer;
   }
