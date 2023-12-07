@@ -3,7 +3,7 @@ version: "3"
 services:
   app:
     build: .
-    container_name: rafael/react-todo-list-docker:latest
+    container_name: faelsouz/todo-list-reactjs-app:1.1
     ports:
       - 3000:3000
     volumes:

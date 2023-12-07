@@ -9,4 +9,4 @@ spec:
     - protocol: TCP
       port: 80
       targetPort: 80
-  type: NodePort  # Use NodePort para acesso externo em um ambiente de desenvolvimento
+  type: NodePort  # ClusterIP ou NodePort ou LoadBalancer  Use NodePort para acesso externo em um ambiente de desenvolvimento

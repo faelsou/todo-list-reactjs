@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: todo-list
-          image: faelsouz/todo-list-reactjs-app:1.0  # Use a imagem desejada (por exemplo, um servidor web Nginx ou algo que sirva arquivos estáticos)
+          image: faelsouz/todo-list-reactjs-app:1.1  # Use a imagem desejada (por exemplo, um servidor web Nginx ou algo que sirva arquivos estáticos)
           ports:
             - containerPort: 80
           resources:
