@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: todo-list-app-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: todo-list-app
+  template:
+    metadata:
+      labels:
+        app: todo-list-app
+    spec:
+      containers:
+        - name: todo-list-app-container
+          image: faelsouz/todo-list-reactjs-app:1.1
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              memory: "512Mi"
+              cpu: "500m"
+            limits:
+              memory: "1Gi"
+              cpu: "1"
+          envFrom:
+            - configMapRef:
+                name: todo-list-app-configmap

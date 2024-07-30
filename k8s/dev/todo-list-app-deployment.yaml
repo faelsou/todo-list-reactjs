@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: todo-list-app-deployment
+  labels:
+    app: todo-list-app-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: todo-list-app-deployment
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 2
+  template:
+    metadata:
+      labels:
+        app: todo-list-app-deployment
+    spec:
+      containers:
+        - image: faelsouz/todo-list-reactjs-app:1.1
+          name: todo-list-app-container
+          ports:
+            - name: http
+              containerPort: 80
+          resources:
+            requests:
+              memory: "512Mi"
+              cpu: "500m"
+            limits:
+              memory: "1Gi"
+              cpu: "1"
+          livenessProbe:
+            tcpSocket:
+              port: 80
+            initialDelaySeconds: 30
+            periodSeconds: 50
+            timeoutSeconds: 5
+            failureThreshold: 3
+          readinessProbe: 
+            httpGet:
+              path: /
+              port: 8
+            initialDelaySeconds: 30
+            periodSeconds: 50
+            timeoutSeconds: 5
+            failureThreshold: 3
+            successThreshold: 1
+          #envFrom:
+          # - configMapRef:
+            #    name: todo-list-app-configmap
