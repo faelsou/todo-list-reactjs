@@ -25,7 +25,6 @@ spec:
     type: RollingUpdate
   template:
     metadata:
-      creationTimestamp: null
       labels:
         app: todo-list-02
     spec:
@@ -50,12 +49,6 @@ status:
     reason: MinimumReplicasAvailable
     status: "True"
     type: Available
-  - lastTransitionTime: "2024-07-30T08:22:41Z"
-    lastUpdateTime: "2024-07-30T08:23:03Z"
-    message: ReplicaSet "todo-list-02-69898d84bd" has successfully progressed.
-    reason: NewReplicaSetAvailable
-    status: "True"
-    type: Progressing
   observedGeneration: 1
   readyReplicas: 1
   replicas: 3
