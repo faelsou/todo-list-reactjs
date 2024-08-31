@@ -3,7 +3,6 @@ pipeline {
 
     environment {
         NODE_ENV = 'production'
-    }
         DEPLOY_DIR = '/var/www/todo-list-react'
     }
 
