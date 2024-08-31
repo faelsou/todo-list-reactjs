@@ -5,6 +5,6 @@ services:
     build: .
     container_name: faelsouz/todo-list-reactjs-app:1.1
     ports:
-      - 3000:3000
+      - 3001:3000
     volumes:
       - .:/src/

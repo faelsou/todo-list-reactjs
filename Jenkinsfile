@@ -1,41 +1,68 @@
 pipeline {
     agent any
-    //{
-    //     docker {
-    //         image 'faelsouz/react-todo-list-app:1.0'
-    //         args '-p 3000:3000'
-    //     }
-    // }
+
+    environment {
+        NODE_ENV = 'production'
+    }
+
     stages {
-        
-        stage('Checkout do codigo') {
+        stage('Checkout') {
             steps {
-                git url: "https://github.com/faelsou/todo-list-reactjs.git", branch: 'main'
-                echo 'Fazendo checkout no repositorio'
+                git branch: 'main', url: 'https://github.com/faelsou/todo-list-reactjs.git'
             }
         }
-        // stage('Build') {
-        //     steps {
-        //         sh 'npm install'
-        //     }
-        // }
-        stage('Construção da imagem docker') {
+
+        stage('Install Dependencies') {
             steps {
-                script{
-                    sh 'docker build -f react-todo-list-app:1.0 .' 
-                    echo 'Construindo imagem docker'
+                script {
+                    sh 'npm install'
                 }
-                
             }
         }
-        stage('Docker Push') {
+
+        stage('Lint') {
             steps {
-                script{
-                    withDockerRegistry([credentialsId: "dockerhub", url: "https://hub.docker.com/"]) {
-                        sh 'docker push react-todo-list-app:1.0'
-                    }
+                script {
+                    sh 'npm run lint'
                 }
             }
+        }
+
+        stage('Test') {
+            steps {
+                script {
+                    sh 'npm test'
+                }
+            }
+        }
+
+        stage('Build') {
+            steps {
+                script {
+                    sh 'npm run build'
+                }
+            }
+        }
+
+//        stage('Deploy') {
+  //          steps {
+    //            script {
+                   // Exemplo de deploy para o S3 da AWS
+      //              sh 'aws s3 sync build/ s3://meu-bucket-s3 --delete'
+        //        }
+          //  }
+      //  }
+    //}
+
+    post {
+        always {
+            echo 'Pipeline concluída.'
+        }
+        success {
+            echo 'Aplicação React construída com sucesso.'
+        }
+        failure {
+            echo 'Erro na execução da pipeline.'
         }
     }
 }
