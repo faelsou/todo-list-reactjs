@@ -44,15 +44,15 @@ pipeline {
             }
         }
 
-//        stage('Deploy') {
-  //          steps {
-    //            script {
+        stage('Deploy') {
+            steps {
+                script {
                    // Exemplo de deploy para o S3 da AWS
-      //              sh 'aws s3 sync build/ s3://meu-bucket-s3 --delete'
-        //        }
-          //  }
-      //  }
-    //}
+//                    sh 'aws s3 sync build/ s3://meu-bucket-s3 --delete'
+                }
+            }
+        }
+    }
 
     post {
         always {
