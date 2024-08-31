@@ -4,7 +4,12 @@ pipeline {
     environment {
         NODE_ENV = 'production'
     }
+        DEPLOY_DIR = '/var/www/todo-list-react'
+    }
 
+    tools {
+        nodejs 'NodeJS 18' // Nome da instalação configurada em "Gerenciar Jenkins"
+    }
     stages {
         stage('Checkout') {
             steps {
