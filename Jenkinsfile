@@ -4,6 +4,8 @@ pipeline {
     environment {
         NODE_ENV = 'production'
         DEPLOY_DIR = '/var/www/todo-list-react'
+        DOCKER_IMAGE = "minikube-registry.local/faelsou/todo-list-web:1.1:${env.BUILD_ID}"
+        DOCKER_REGISTRY = "minikube-registry.local"
     }
 
     tools {
@@ -18,6 +20,11 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 sh 'npm install'
+            }
+        }
+        stage('Build') {
+            steps {
+                sh 'npm run build'
             }
         }
     }
