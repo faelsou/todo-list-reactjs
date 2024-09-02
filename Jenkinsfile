@@ -9,7 +9,7 @@ pipeline {
     }
 
     tools {
-        nodejs 'NodeJS 18' // Nome da instalação configurada em "Gerenciar Jenkins"
+        nodejs 'NodeJS' // Nome da instalação configurada em "Gerenciar Jenkins"
     }
     stages {
         stage('Checkout') {
