@@ -8,9 +8,7 @@ pipeline {
         DOCKER_REGISTRY = "minikube-registry.local"
     }
 
-    tools {
-        nodejs 'NodeJS' // Nome da instalação configurada em "Gerenciar Jenkins"
-    }
+
     stages {
         stage('Checkout') {
             steps {
