@@ -7,10 +7,6 @@ pipeline {
         DOCKER_IMAGE = "minikube-registry.local/faelsou/todo-list-web:1.1:${env.BUILD_ID}"
         DOCKER_REGISTRY = "minikube-registry.local"
     }
-
-    tools {
-        nodejs 'NodeJS' // Nome configurado em "Gerenciar Jenkins"
-    }
     stages {
         stage('Checkout') {
             steps {
