@@ -8,12 +8,12 @@ metadata:
   labels:
     app: todo-list-02
   name: todo-list-02
-  namespace: default
+  namespace: app-react
   resourceVersion: "1411130"
   uid: d3160049-940f-4ac5-b4e0-804de3e6004e
 spec:
   progressDeadlineSeconds: 600
-  replicas: 1
+  replicas: 3
   revisionHistoryLimit: 10
   selector:
     matchLabels:

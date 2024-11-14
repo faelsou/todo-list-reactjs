@@ -1,14 +1,14 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: todo-list-app-deployment
+  name: todo-list-app
   labels:
-    app: todo-list-app-deployment
+    app: todo-list-app
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
-      app: todo-list-app-deployment
+      app: todo-list-app
   strategy:
     type: RollingUpdate
     rollingUpdate:
@@ -17,11 +17,11 @@ spec:
   template:
     metadata:
       labels:
-        app: todo-list-app-deployment
+        app: todo-list-app
     spec:
       containers:
         - image: faelsouz/todo-list-reactjs-app:1.1
-          name: todo-list-app-container
+          name: todo-list-app
           ports:
             - name: http
               containerPort: 80
@@ -34,15 +34,15 @@ spec:
               cpu: "1"
           livenessProbe:
             tcpSocket:
-              port: 80
+              port: 3000
             initialDelaySeconds: 30
-            periodSeconds: 50
+            periodSeconds: 50 
             timeoutSeconds: 5
             failureThreshold: 3
           readinessProbe: 
             httpGet:
               path: /
-              port: 8
+              port: 3000
             initialDelaySeconds: 30
             periodSeconds: 50
             timeoutSeconds: 5
